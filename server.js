@@ -11,9 +11,9 @@ io.on('connection', (socket) => {
 
     socket.emit('updateData', tasks);
 
-    socket.on('addTask', ({ task, id }) => {
-        tasks.push({ task, id });
-        socket.broadcast.emit('addTask', { task, id });
+    socket.on('addTask', ({ description, id }) => {
+        tasks.push({ description, id });
+        socket.broadcast.emit('addTask', { description, id });
     });
 
     socket.on('removeTask', (id) => {
